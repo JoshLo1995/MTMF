@@ -28,7 +28,7 @@ User.prototype.setUserName = () => {
 
 // Call from sign up page
 User.prototype.createNewUser = () => {
-    let username = setUserName();
+    let username = User.prototype.setUserName();
     bcrypt.hash(`${insertpasswordfieldhere}`, 10, (err, hash) => {
         // Store hash in database
         if (hash) {
@@ -47,6 +47,12 @@ User.prototype.createNewUser = () => {
 }
 
 User.prototype.verifyPassword = () => {
+    let username = `${insertusernamefieldhere}`;
+    let hash = User.findOne(
+        {
+            username: username,
+        }
+    ).password;
     bcrypt.compare(`${insertpasswordfieldhere}`, hash, (err, res) => {
         if (res) {
             // handle success
