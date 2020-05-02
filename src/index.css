@@ -12,14 +12,3 @@ code {
     monospace;
 }
 
-html { 
-  background: url(./Content/images/blurred-merc.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#topBar {
-  padding: 0px;
-}

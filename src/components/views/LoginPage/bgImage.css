@@ -1,0 +1,6 @@
+#bgImage {
+    position: fixed;
+    display: inline-block;
+    left: 0%;
+    background: no-repeat center center fixed;
+}

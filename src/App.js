@@ -1,44 +1,36 @@
 import React from 'react';
 import './App.css';
-import LoginBox from './components/loginBox/loginBox.js'
-import TopBar from './components/TopBar/TopBar'
-
-// TEMPORARY IMPORT
-import MainImage from './Content/images/midcornerMerc.jpg';
+import TopBar from './components/TopBar';
+import LoginPage from './components/views/LoginPage/LoginPage.js';
+import SignupPage from './components/views/SignupPage/signUpPage';
+import BgImage from './components/views/LoginPage/bgImage.js'
 
 function App() {
   return (
     <div className="App">
       <TopBar></TopBar>
-      <header className="App-header">
-        <div className = "container">
-          <div className = "row" id = "mainContent">
-            <div className = "col-7">
-              {/* Temporary img link */}
-              <img src = {MainImage}
-              alt = "raceCar"
-              style = {{
-                display: 'inline-block',
-                height: '30%',
-                borderRadius: '6.9%',
-              }}></img>
+      <div className = "container">
+        <BgImage></BgImage>
+        <div className = "row">
+          <div className = "col-12">
+            <header className = "App-header">
+            {/* Use app router to send user to new page */}
+            
+            <div className = 'container' id = 'content'>
+              <div className = 'row'>
+                <div className = 'col-12'>
+                  <LoginPage></LoginPage>
+                  {/* <SignupPage></SignupPage> */}
+                </div>
+              </div>
             </div>
-            <div className = "col-5"
-              style = {
-                {
-                  marginTop: '5%',
-                  position: "relative",
-                  right: "7%"
-                }
-              }>
-              <LoginBox></LoginBox> 
-            </div>
+            </header>
+
           </div>
         </div>
-      </header>
+      </div>
     </div>
   );
 }
 
 export default App;
-

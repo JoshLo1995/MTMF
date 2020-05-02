@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-image: url(../src/Content/images/blurred-merc.jpg);
+  /* background-image: url(../src/Content/images/blurred-merc.jpg); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

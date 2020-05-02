@@ -1,7 +1,9 @@
 #topBar {
     padding: 0px;
-  }
+}
   
 #navMain {
-    position: static;
+    position: fixed;
+    background-color: #464646;
+    color: white;
 }

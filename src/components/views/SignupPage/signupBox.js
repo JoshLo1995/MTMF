@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Content/css/loginBox.css';
+import './signupBox.css';
 // import { GoogleLogin } from 'react-google-login';
 
 export default class SignupBox extends React.Component {
@@ -11,7 +11,7 @@ export default class SignupBox extends React.Component {
         return(
             <div className = "container" id = "SignupBoxMain">
                 <div className = "row d-flex justify-content-center">
-                    <div classname = "col-12">
+                    <div className = "col-12">
                         <div className = "row">
                             <div className = "col-12">
                                 Sign Up
