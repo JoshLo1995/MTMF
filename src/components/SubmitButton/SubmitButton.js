@@ -12,7 +12,9 @@ export default class SubmitButton extends React.Component {
                         id = "submitColumn">
                         <Button
                             variant="primary"
-                            id = "submitButton">Submit</Button>   
+                            id = "submitButton"
+                            >Submit
+                        </Button>   
                     </div>
                 </div>
             </div>

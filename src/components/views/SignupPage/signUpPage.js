@@ -8,7 +8,7 @@ export default function SignupPage() {
     return(
         <div className = "container">
             <div className = "row">
-                <div className = "col-12">
+                <div className = "col-12" id = "contentBox">
                     <SignupBox></SignupBox>     
                     <SubmitButton></SubmitButton>   
                 </div>

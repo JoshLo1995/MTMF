@@ -7,7 +7,6 @@ import SubmitButton from '../../../components/SubmitButton/SubmitButton';
 export default function LoginPage() {  
   return(
       <div className = "container">
-        {/* <BgImage></BgImage> */}
         <div className = "row d-flex justify-content-center" id = "mainContent">
           <div className = "col-7">
             <img 

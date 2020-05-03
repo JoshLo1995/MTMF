@@ -6,7 +6,7 @@ import "./SubmitButton/SubmitButton.css";
 import "./views/SignupPage/signUpPage.css";
 import LoginPage from '../components/views/LoginPage/LoginPage';
 import SignupPage from '../components/views/SignupPage/signUpPage';
-import MembersPage from '../components/views/MembersPage/MembersPage';
+import MembersPage from '../components/views/MembersPage/MembersPage.js';
 
 export default function TopBar() {
       return(
@@ -54,7 +54,7 @@ export default function TopBar() {
             <Route path = "/signup">
               <SignupPage/>
             </Route>
-            <Route path = "members">
+            <Route path = "/members">
               <MembersPage/>
             </Route>
           </Switch>
