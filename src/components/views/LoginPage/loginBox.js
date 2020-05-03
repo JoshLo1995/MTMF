@@ -69,7 +69,7 @@ export default class LoginBox extends React.Component {
 
 
 /* Notes 
-Having trouble linking css file
+Google Login box disappears if you switch to sign in and then back to login
 
 TODO:
 #1 Hide clientID

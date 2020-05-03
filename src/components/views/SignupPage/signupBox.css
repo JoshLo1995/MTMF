@@ -17,5 +17,11 @@
     text-align: center;
     margin: 5px;
     width: 100%;
+    
 }
+
+::placeholder {
+    color: white;
+}
+
 

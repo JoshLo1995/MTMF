@@ -6,8 +6,17 @@ export default class SubmitButton extends React.Component {
 
     render() {
         return(
-            <Button variant="primary"
-            id = "submitButton">Submit</Button>   
+            <div className = "container">
+                <div className = "row d-flex justify-content center">
+                    <div className = "col-12 d-flex justify-content center"
+                        id = "submitColumn">
+                        <Button
+                            variant="primary"
+                            id = "submitButton">Submit</Button>   
+                    </div>
+                </div>
+            </div>
+
         );
     }
 }
