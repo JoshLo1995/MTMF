@@ -3,6 +3,11 @@ import './signUpPage.css';
 
 import SignupBox from './signupBox';
 import SubmitButton from '../../SubmitButton/SubmitButton.js'
+import BgImage from '../../../Content/images/rbLeavingPits.jpg';
+
+const styles = {
+    
+}
 
 export default function SignupPage() {
     return(

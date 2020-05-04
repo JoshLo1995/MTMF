@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
-var db = require("../Models");
-var passport = require("../maybe security maybe db/passport.js");
+var db = require("../Models/user.js");
+var passport = require("../Scripts/passport.js");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.

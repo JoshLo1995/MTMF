@@ -6,7 +6,7 @@ import "./SubmitButton/SubmitButton.css";
 import "./views/SignupPage/signUpPage.css";
 import LoginPage from '../components/views/LoginPage/LoginPage';
 import SignupPage from '../components/views/SignupPage/signUpPage';
-import MembersPage from '../components/views/MembersPage/MembersPage.js';
+import MembersPage from '../components/views/MembersPage/MembersPage.jsx';
 
 export default function TopBar() {
       return(
