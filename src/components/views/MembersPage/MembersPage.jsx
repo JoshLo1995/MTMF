@@ -50,75 +50,47 @@ export default class MembersPage extends React.Component {
         }
     }
 
-    // processImageObject(type) {
-    //     this.setState(
-    //         {
-    //             active_type: type
-    //         }, 
-    //         () => {
-    //             if(!this.state.image_object_details[this.state.active_type]) {
-    //                 api("detect_image_objects", {
-    //                     type,
-    //                     data: this.state.image_object
-    //                 }).then((res) => {
-    //                     const filtered_data = res;
-    //                     const image_details = this.state.image_object_details;
+    processImageText() {
 
-    //                     image_details[filtered_data.type] = filtered_data.data;
-
-    //                     this.setState(
-    //                         {
-    //                             image_object_details: image_details
-    //                         }
-    //                     );
-    //                 });
-    //             }
-    //         }
-    //     );
-    // }
+    }
 
     render() {
         return(
             <Container maxwidth = "md" style = {{marginTop: '5%'}}>
                 <Grid container spacing = {2}>
-                    <Grid item xs = {12}>
+                    <Grid item xs = {12} container justify = "center">
                         <CardContent>
                             <Typography 
                                 variant = "h4"
                                 color = "textPrimary"
                                 component = "h4">
-                                    Object Detection Tensorflow
+                                    Upload overhead track image to start!
                                 </Typography>
                         </CardContent>
                     </Grid>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} container justify = "center">
                        {this.state.image_object &&
-                           <img src={this.state.image_object} alt="" height="500px"/>
+                           <img src={this.state.image_object} alt="" height="700px"/>
                        }
-                   </Grid>
-                   <Grid item xs={12}>
-                       <Card>
-                           <CardContent>
-                               <Button variant="contained"
-                                   component='label' // <-- Just add me!
-                                   >
-                                   Upload Image
-                                   <input accept="image/jpeg" onChange={(e) =>  this.updateImageObject(e)} type="file" style={{ display: 'none' }} />
-                               </Button>
+                </Grid>
+                <Grid item xs={12} container justify = "center">
+                    <Card>
+                        <CardContent>
+                            <Button variant="contained"
+                                component='label' // <-- Just add me!
+                                >
+                                Upload Image
+                                <input accept="image/jpeg" onChange={(e) =>  this.updateImageObject(e)} type="file" style={{ display: 'none' }} />
+                            </Button>
                            </CardContent>
                        </Card>
                    </Grid>
-                   <Grid item xs={3}>
+                   <Grid item xs={12}>
                        <Grid container justify="center" spacing={3}>
                            <Grid item >
                                {this.state.image_object && <Button onClick={() => this.processImageObject("imagenet")}variant="contained" color="primary">
                                    Get objects with ImageNet
-                               </Button>}
-                           </Grid>
-                           <Grid item>
-                               {this.state.image_object && <Button onClick={() => this.processImageObject("coco-ssd")}variant="contained" color="secondary">
-                                   Get objects with Coco SSD
                                </Button>}
                            </Grid>
                        </Grid>

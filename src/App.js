@@ -2,7 +2,7 @@ import React from 'react';
 // import { Router, Route } from "react-router-dom";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import './App.css';
-import TopBar from './components/TopBar';
+import TopBar from './components/TopBar.jsx';
 import Box from '@material-ui/core/Box';
 import LandingPage from './components/views/LandingPage/LandingPage';
 // import LoginPage from './components/views/LoginPage/LoginPage.js';
