@@ -1,7 +1,8 @@
-.AppContainer {
+html {
     background-image: url('../../../Content/images/blurred-merc.jpg');
-    justify-content: center;
-    height: 100vh;
-    
+}
+
+#content {
+
 }
 

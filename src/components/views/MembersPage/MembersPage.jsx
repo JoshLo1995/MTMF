@@ -50,32 +50,32 @@ export default class MembersPage extends React.Component {
         }
     }
 
-    processImageObject(type) {
-        this.setState(
-            {
-                active_type: type
-            }, 
-            () => {
-                if(!this.state.image_object_details[this.state.active_type]) {
-                    api("detect_image_objects", {
-                        type,
-                        data: this.state.image_object
-                    }).then((res) => {
-                        const filtered_data = res;
-                        const image_details = this.state.image_object_details;
+    // processImageObject(type) {
+    //     this.setState(
+    //         {
+    //             active_type: type
+    //         }, 
+    //         () => {
+    //             if(!this.state.image_object_details[this.state.active_type]) {
+    //                 api("detect_image_objects", {
+    //                     type,
+    //                     data: this.state.image_object
+    //                 }).then((res) => {
+    //                     const filtered_data = res;
+    //                     const image_details = this.state.image_object_details;
 
-                        image_details[filtered_data.type] = filtered_data.data;
+    //                     image_details[filtered_data.type] = filtered_data.data;
 
-                        this.setState(
-                            {
-                                image_object_details: image_details
-                            }
-                        );
-                    });
-                }
-            }
-        );
-    }
+    //                     this.setState(
+    //                         {
+    //                             image_object_details: image_details
+    //                         }
+    //                     );
+    //                 });
+    //             }
+    //         }
+    //     );
+    // }
 
     render() {
         return(
