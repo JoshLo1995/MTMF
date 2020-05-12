@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import './App.css';
 import TopBar from './components/TopBar.jsx';
 import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import LandingPage from './components/views/LandingPage/LandingPage';
 // import LoginPage from './components/views/LoginPage/LoginPage.js';
 import SignupPage from './components/views/SignupPage/signUpPage';
@@ -13,8 +14,12 @@ import MembersPage from './components/views/MembersPage/MembersPage';
 function App() {
   return (
     <Router>
-      <Box>
-        <TopBar/>
+      <Grid>
+        <Box>
+          <TopBar/>
+        </Box>
+      </Grid>
+      <Grid>
         <Box> 
           <Switch>
             <Route exact path = "/">
@@ -28,9 +33,7 @@ function App() {
             </Route>
           </Switch>
         </Box>
-      </Box>
-
-
+      </Grid>
     </Router>
   );
 }

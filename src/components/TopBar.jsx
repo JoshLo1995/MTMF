@@ -10,10 +10,14 @@ import LandingPage from './views/LandingPage/LandingPage.jsx';
 import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 
+import Container from '@material-ui/core/Container';
+
 export default function TopBar() {
       return(
-        <Navbar expand="lg" variant="dark" bg="dark" fixed = "top">
-          <Navbar.Brand href="/members">MTMF</Navbar.Brand>
-        </Navbar>
+        <Container>
+          <Navbar expand="lg" variant="dark" bg="dark" fixed = "top">
+            <Navbar.Brand href="/members">MTMF</Navbar.Brand>
+          </Navbar>
+        </Container>
       )
     }
