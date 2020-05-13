@@ -1,27 +1,33 @@
-import React, { useImperativeHandle } from 'react';
-import MembersPage from '../views/MembersPage/MembersPage';
+import React from 'react';
 
 import TemporaryImage from '../../Content/images/Silverstone.jpg';
 
 export default class Canvas extends React.Component {
   // 1. Create <canvas> element (created when an image is uploaded)
-  hookandGetContext() {
-    this.canvas = document.getElementById('canvas');
-    this.context = this.canvas.getContext('2d');
+  generateImage() {
     this.image = new Image();
+    // Pass image data from MembersPage
     this.image.src = TemporaryImage;
-    this.image.onload = this.drawManipulatedImage;
-    this.canvas.width = 0.5 * this.image.width; this.canvas.height = 0.5 * this.image.height;
-    console.log(this.image);
+    this.image.onload = () => {
+      this.drawManipulatedImage();
+    }
   }
-
+  
   drawManipulatedImage = () => {
-    console.log('drawing image', this.context);
-    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
-  }
+    // Create canvas and context
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
 
+    // Canvas dimensions
+    canvas.width = 0.5 * this.image.naturalWidth; canvas.height = 0.5 * this.image.naturalHeight;
+    
+    // Draw the Image
+    console.log('drawing image', this.context, this.image);
+    context.drawImage(this.image, 0, 0, canvas.width, canvas.height);
+  }
+  
   componentDidMount() {
-    this.hookandGetContext();
+    this.generateImage();
   }
 
   

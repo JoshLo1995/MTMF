@@ -21,7 +21,7 @@ import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-export default class ImageOps extends React.Component {
+export default class MembersPage extends React.Component {
     
     constructor(props) {
         super(props);
@@ -57,9 +57,6 @@ export default class ImageOps extends React.Component {
                         </CardContent>
                     </Grid>
                     <Grid item xs={12}>
-                        {/* {this.state.image_object && 
-                            <img src={this.state.image_object} alt="" height="500px"/>
-                        } */}
                         {this.state.image_object &&
                             <Canvas ref = "canvas" id = "canvas"></Canvas>
                         }
