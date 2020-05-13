@@ -6,21 +6,22 @@ import TemporaryImage from '../../Content/images/Silverstone.jpg';
 export default class Canvas extends React.Component {
   // 1. Create <canvas> element (created when an image is uploaded)
   hookandGetContext() {
-    this.canvas = document.getElementById('canvas')
+    this.canvas = document.getElementById('canvas');
     this.context = this.canvas.getContext('2d');
     this.image = new Image();
     this.image.src = TemporaryImage;
+    this.image.onload = this.drawManipulatedImage;
+    this.canvas.width = 0.5 * this.image.width; this.canvas.height = 0.5 * this.image.height;
     console.log(this.image);
   }
 
-  drawManipulatedImage() {
-    console.log('drawing image');
-    this.context.drawImage(this.image, 0, 0);
+  drawManipulatedImage = () => {
+    console.log('drawing image', this.context);
+    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
   }
 
   componentDidMount() {
     this.hookandGetContext();
-    this.drawManipulatedImage();
   }
 
   
@@ -34,7 +35,7 @@ export default class Canvas extends React.Component {
     render() {
       console.log('creating canvas');
       return(
-          <canvas ref="canvas" id = "canvas" height = "100%" width = "100%"/>
+          <canvas ref="canvas" id = "canvas"/>
       )
     }
   }
