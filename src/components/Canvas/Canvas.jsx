@@ -3,11 +3,18 @@ import React from 'react';
 import TemporaryImage from '../../Content/images/Silverstone.jpg';
 
 export default class Canvas extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  componentDidMount() {
+  }
   // 1. Create <canvas> element (created when an image is uploaded)
   generateImage() {
     this.image = new Image();
     // Pass image data from MembersPage
-    this.image.src = TemporaryImage;
+    this.image.src = this.state.uploadedImage;
     this.image.onload = () => {
       this.drawManipulatedImage();
     }
@@ -27,7 +34,13 @@ export default class Canvas extends React.Component {
   }
   
   componentDidMount() {
-    this.generateImage();
+    this.setState(
+      {
+        uploadedImage: this.props.uploadedImage
+      } , () => {
+        this.generateImage();
+      }
+    )
   }
 
   

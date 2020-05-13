@@ -58,7 +58,7 @@ export default class MembersPage extends React.Component {
                     </Grid>
                     <Grid item xs={12}>
                         {this.state.image_object &&
-                            <Canvas ref = "canvas" id = "canvas"></Canvas>
+                            <Canvas ref = "canvas" id = "canvas" uploadedImage = {this.state.image_object}></Canvas>
                         }
                     </Grid>
                     <Grid item xs={12}>
