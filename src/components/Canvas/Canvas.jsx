@@ -1,36 +1,87 @@
 import React from 'react';
 
-import TemporaryImage from '../../Content/images/Silverstone.jpg';
-
 export default class Canvas extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-  }
+  // }
 
-  componentDidMount() {
-  }
   // 1. Create <canvas> element (created when an image is uploaded)
   generateImage() {
     this.image = new Image();
     // Pass image data from MembersPage
     this.image.src = this.state.uploadedImage;
+    this.canvas = document.getElementById('canvas');
+    console.log('before manipulation', this.image.src);
     this.image.onload = () => {
+      this.drawUploadedImage();
+      // Need to convert return from updateImageData from Uint8 array to base64 econded string
+      this.image.src = this.updateImageData();
+      console.log('after manipulation', this.image.src);
       this.drawManipulatedImage();
+       
     }
   }
-  
+
   drawManipulatedImage = () => {
-    // Create canvas and context
-    const canvas = document.getElementById('canvas');
-    const context = canvas.getContext('2d');
+    // this.canvas = document.getElementById('canvas');
+    // this.context = canvas.getContext('2d');
 
     // Canvas dimensions
-    canvas.width = 0.5 * this.image.naturalWidth; canvas.height = 0.5 * this.image.naturalHeight;
+    this.canvas.width = this.image.naturalWidth; this.canvas.height = this.image.naturalHeight;
+
+    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
+  }
+  
+  drawUploadedImage = () => {
+    // Create canvas and context
+    this.context = this.canvas.getContext('2d');
+
+    // Canvas dimensions
+    this.canvas.width = this.image.naturalWidth; this.canvas.height = this.image.naturalHeight;
     
     // Draw the Image
-    console.log('drawing image', this.context, this.image);
-    context.drawImage(this.image, 0, 0, canvas.width, canvas.height);
+    console.log('drawing image', this.image);
+    this.context.drawImage(this.image, 0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  updateImageData() {
+    // Gets imagedata as Uint8
+    let imageData = this.context.getImageData(0, 0, this.image.naturalWidth, this.image.naturalHeight);
+
+    // Determine majority color and then filter that color out, but for now just do black
+    // 
+    imageData = this.blackPassFilter(imageData.data);
+    
+    // imageData = new ImageData(imageData.data, this.image.naturalWidth, this.image.naturalHeight);
+    console.log('black pass filter applied', imageData);
+
+    return imageData;
+  }
+
+  blackPassFilter(image) {
+    for (let i = 0 ; i < image.length; i += 4) {
+      let red = i;
+      let blue = i + 1;
+      let green = i + 2;
+      let alphaVal = i + 3;
+      if (
+        image[red] !== 65 && // Red value
+        image[blue] !== 65 && // Blue value
+        image[green] !== 66 && // Green value
+        image[alphaVal] >= 0.3 // Alpha value
+        ) {
+          image[red] = 0;
+          image[blue] = 0;
+          image[green] = 0;
+          image[alphaVal] = 0;
+          console.log('converted colored pixel to white');
+        }
+    }
+    console.log(image);
+    // Convert from Uint8 to base64
+    const img = this.canvas.toDataURL('image/jpeg');
+    return `<img src = '${img}'/>`;
   }
   
   componentDidMount() {
