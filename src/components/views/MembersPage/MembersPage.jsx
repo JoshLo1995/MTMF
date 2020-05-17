@@ -21,11 +21,11 @@ import Paper from '@material-ui/core/Paper';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-export default class MembersPage extends React.Component {
-    
+export default class MembersPage extends React.Component { 
     constructor(props) {
         super(props);
 
+        // Try setState here, don't want to mutate this.state directly
         this.state = {
             image_object: null,
             image_object_details: {},
@@ -41,6 +41,7 @@ export default class MembersPage extends React.Component {
         reader.onload = () => {
             this.setState({image_object: reader.result, image_object_details: {}, active_type: null});
         };
+
 
     }
 
@@ -58,7 +59,7 @@ export default class MembersPage extends React.Component {
                     </Grid>
                     <Grid item xs={12}>
                         {this.state.image_object &&
-                            <Canvas ref = "canvas" id = "canvas" uploadedImage = {this.state.image_object}></Canvas>
+                            <Canvas ref = "canvas" id = "canvas" uploadedImage = {this.state.image_object} width = {this.state.image_object.width} height = {this.state.image_object.height}></Canvas>
                         }
                     </Grid>
                     <Grid item xs={12}>
