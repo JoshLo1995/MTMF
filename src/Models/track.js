@@ -1,0 +1,1 @@
+// After final project submission, instead of uploading images, have the user select a track from the database that has already been processed (image processing to get uint8 array of track, and pathfinding algorithm) by the server.
