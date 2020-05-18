@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
 var db = require("../Models/user.js");
-var passport = require("../Scripts/passport.js");
+var passport = require("../Scripts/authentication/passport.js");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -8,6 +8,8 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
+
+    res.redirect('/users/' + req.user.username);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

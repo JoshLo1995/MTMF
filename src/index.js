@@ -5,6 +5,15 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
+// const express = require('express');
+// const passport = require('passport');
+// const session = require('express-session');
+// const mongoose = require('mongoose');
+
+// const app = express();
+
+
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
