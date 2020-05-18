@@ -25,7 +25,6 @@ export default class MembersPage extends React.Component {
     constructor(props) {
         super(props);
 
-        // Try setState here, don't want to mutate this.state directly
         this.state = {
             image_object: null,
             image_object_details: {},
@@ -36,6 +35,7 @@ export default class MembersPage extends React.Component {
     updateImageObject(e) {
         const file  = e.target.files[0];
         const reader = new FileReader();
+
         
         reader.readAsDataURL(file);
         reader.onload = () => {
@@ -69,7 +69,7 @@ export default class MembersPage extends React.Component {
                                     component='label' // <-- Just add me!
                                     >
                                     Upload Image
-                                    <input accept="image/jpeg" onChange={(e) =>  this.updateImageObject(e)} type="file" style={{ display: 'none' }} />
+                                    <input accept="image/jpeg,image/png" onChange={(e) =>  this.updateImageObject(e)} type="file" style={{ display: 'none' }} />
                                 </Button>
                             </CardContent>
                         </Card>
